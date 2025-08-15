@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+        
+        :root {
+            --pink: #ff9bb3;
+            --dark-pink: #ff6b8b;
+            --gold: #ffd700;
+            --pastel-blue: #a2d2ff;
+            --pastel-purple: #cdb4db;
+            --white: #fff9fb;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: #5a3d3d;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--dark-pink);
+            text-shadow: 0 0 10px rgba(255, 107, 139, 0.5);
+            margin-bottom: 30px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 107, 139, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 107, 139, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        .cake-container {
+            position: relative;
+            width: 300px;
+            height: 350px;
+            margin: 0 auto 40px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .cake-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .cake {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .cake-plate {
+            width: 280px;
+            height: 20px;
+            background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cake-layer-bottom {
+            width: 240px;
+            height: 80px;
+            background: linear-gradient(to right, #f8c8dc, #ffb6c1);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cake-layer-top {
+            width: 220px;
+            height: 60px;
+            background: linear-gradient(to right, #ffdfed, #ffb6c1);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .frosting-top {
+            width: 240px;
+            height: 30px;
+            background: linear-gradient(to right, #fff0f5, #fff);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .frosting-drip {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(to right, #fff0f5, #fff);
+            bottom: 130px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .drip-1 {
+            left: calc(50% - 100px);
+        }
+        
+        .drip-2 {
+            left: calc(50% - 60px);
+            height: 25px;
+        }
+        
+        .drip-3 {
+            left: calc(50% - 20px);
+            height: 35px;
+        }
+        
+        .drip-4 {
+            left: calc(50% + 20px);
+            height: 25px;
+        }
+        
+        .drip-5 {
+            left: calc(50% + 60px);
+        }
+        
+        .candle {
+            width: 10px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gold), #ffa500);
+            position: absolute;
+            bottom: 190px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            z-index: 2;
+        }
+        
+        .flame {
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(to bottom, #ffff00, #ff8c00);
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 1s infinite alternate;
+            box-shadow: 0 0 20px #ff8c00;
+            z-index: 3;
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) scale(0.9, 1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        .candle-light {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0) 70%);
+            border-radius: 50%;
+            bottom: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .sprinkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .sprinkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--pastel-purple);
+            animation: sprinkle-shine 2s infinite alternate;
+        }
+        
+        @keyframes sprinkle-shine {
+            0% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+        
+        .slice {
+            position: absolute;
+            width: 120px;
+            height: 160px;
+            background: linear-gradient(to right, #f8c8dc, #ffb6c1);
+            border-radius: 0 10px 10px 0;
+            bottom: 20px;
+            left: 50%;
+            transform-origin: left center;
+            transform: rotate(0deg);
+            display: none;
+            z-index: 10;
+            box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cut-line {
+            position: absolute;
+            width: 2px;
+            height: 180px;
+            background-color: rgba(255, 255, 255, 0.8);
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: none;
+            z-index: 5;
+        }
+        
+        .letter {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .letter.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .letter-content {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #5a3d3d;
+            text-align: left;
+        }
+        
+        .letter-line {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .letter-line.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .balloon {
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 100%;
+            animation: float-up 5s linear forwards;
+        }
+        
+        .ribbon {
+            width: 5px;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--pink), var(--pastel-purple), var(--pastel-blue));
+            position: absolute;
+            top: 100%;
+            animation: float-down 4s linear forwards;
+            transform-origin: top;
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float-heart 15s linear infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float-down {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float-heart {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .fairy-light {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--gold);
+            box-shadow: 0 0 10px 2px var(--gold);
+            animation: twinkle 2s infinite alternate;
+            z-index: -1;
+        }
+        
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+                box-shadow: 0 0 5px 1px var(--gold);
+            }
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 15px 3px var(--gold);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cake-container {
+                width: 250px;
+                height: 300px;
+            }
+            
+            .letter {
+                padding: 20px;
+            }
+            
+            .letter-content {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, My Love! ❤️</h1>
+        
+        <div class="cake-container" id="cake">
+            <div class="cake">
+                <div class="cake-plate"></div>
+                <div class="cake-layer-bottom"></div>
+                <div class="cake-layer-top"></div>
+                <div class="frosting-top"></div>
+                <div class="frosting-drip drip-1"></div>
+                <div class="frosting-drip drip-2"></div>
+                <div class="frosting-drip drip-3"></div>
+                <div class="frosting-drip drip-4"></div>
+                <div class="frosting-drip drip-5"></div>
+                <div class="sprinkles" id="sprinkles"></div>
+                <div class="candle-light"></div>
+                <div class="candle"></div>
+                <div class="flame"></div>
+                <div class="slice" id="slice"></div>
+                <div class="cut-line" id="cut-line"></div>
+            </div>
+        </div>
+        
+        <div class="letter" id="letter">
+            <div class="letter-content" id="letter-content">
+                <!-- Letter content will be added by JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <audio id="cut-sound">
+        <source src="https://www.soundjay.com/mechanical/sounds/knife-slice-01.mp3" type="audio/mpeg">
+        <!-- Cake cutting sound -->
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cake = document.getElementById('cake');
+            const slice = document.getElementById('slice');
+            const cutLine = document.getElementById('cut-line');
+            const letter = document.getElementById('letter');
+            const letterContent = document.getElementById('letter-content');
+            const cutSound = document.getElementById('cut-sound');
+            const sprinklesContainer = document.getElementById('sprinkles');
+            
+            // Create sprinkles
+            createSprinkles();
+            
+            // Create floating hearts
+            createHearts();
+            
+            // Create fairy lights
+            createFairyLights();
+            
+            // Letter content
+            const letterText = [
+    "Paaariiii Gudiyaaa (naraangiiiii natkhatttt billliiiiiiii),",
+    "",
+    "Today is your special day, and just like my favorite program,",
+    "you’re running perfectly in the background of my heart ❤️.",
+    "",
+    "You’ve become my favorite algorithm — O(1) time complexity to make me smile,",
+    "and O(∞) when it comes to loving you.",
+    "",
+    "Remember our first date? That was the moment my heart’s compiler stopped throwing errors,",
+    "and finally ran the ‘happily-ever-after’ script without bugs.",
+    "",
+    "You’re not just my love, you’re my version control — keeping my life stable,",
+    "my debugger — helping me fix my bad days,",
+    "and my cloud storage — where all my happiest memories live.",
+    "",
+    "If love was code, I’d never hit ‘exit()’ — I’d just run an infinite loop with you forever.",
+    "And if beauty was measured in bytes, you’d need an entire data center to store it.",
+    "",
+    "So here’s my birthday commit: I promise to keep pushing love updates,",
+    "merging happiness into your life, and never letting our repo go stale.",
+    "",
+    "Happy Birthday, my most beautiful piece of source code!",
+    "",
+    "Forever compiling happiness with you,",
+    "Aapkaa khargosshh ❤️"
+];
+
+            
+            // Add letter lines to DOM
+            letterText.forEach(line => {
+                const p = document.createElement('p');
+                p.className = 'letter-line';
+                p.textContent = line;
+                letterContent.appendChild(p);
+            });
+            
+            // Cake cutting interaction
+            cake.addEventListener('click', function() {
+                if (slice.style.display === 'block') return; // Already cut
+                
+                // Show cut animation
+                cutLine.style.display = 'block';
+                setTimeout(() => {
+                    cutLine.style.display = 'none';
+                    slice.style.display = 'block';
+                    
+                    // Animate slice cutting
+                    let angle = 0;
+                    const sliceInterval = setInterval(() => {
+                        angle += 5;
+                        slice.style.transform = `rotate(${angle}deg)`;
+                        
+                        if (angle >= 30) {
+                            clearInterval(sliceInterval);
+                            showLetter();
+                            createCelebration();
+                            cutSound.play();
+                        }
+                    }, 20);
+                }, 200);
+            });
+            
+            // Create sprinkles
+            function createSprinkles() {
+                const sprinkleColors = ['#ff9bb3', '#a2d2ff', '#cdb4db', '#ffd700', '#bde0fe'];
+                
+                for (let i = 0; i < 30; i++) {
+                    const sprinkle = document.createElement('div');
+                    sprinkle.className = 'sprinkle';
+                    sprinkle.style.left = `${Math.random() * 220 + 40}px`;
+                    sprinkle.style.top = `${Math.random() * 100 + 120}px`;
+                    sprinkle.style.backgroundColor = sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
+                    sprinkle.style.animationDelay = `${Math.random() * 2}s`;
+                    sprinklesContainer.appendChild(sprinkle);
+                }
+            }
+            
+            // Show letter with line-by-line animation
+            function showLetter() {
+                letter.classList.add('show');
+                
+                const lines = document.querySelectorAll('.letter-line');
+                lines.forEach((line, index) => {
+                    setTimeout(() => {
+                        line.classList.add('show');
+                    }, index * 800);
+                });
+            }
+            
+            // Create celebration effects
+            function createCelebration() {
+                // Balloons
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const balloon = document.createElement('div');
+                        balloon.className = 'particle balloon';
+                        balloon.style.left = `${Math.random() * 100}vw`;
+                        balloon.style.background = getRandomColor();
+                        document.body.appendChild(balloon);
+                        
+                        // Remove after animation
+                        setTimeout(() => {
+                            balloon.remove();
+                        }, 5000);
+                    }, i * 200);
+                }
+                
+                // Ribbons
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const ribbon = document.createElement('div');
+                        ribbon.className = 'particle ribbon';
+                        ribbon.style.left = `${Math.random() * 100}vw`;
+                        ribbon.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        document.body.appendChild(ribbon);
+                        
+                        // Remove after animation
+                        setTimeout(() => {
+                            ribbon.remove();
+                        }, 4000);
+                    }, i * 150);
+                }
+                
+                // Confetti
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'particle';
+                        confetti.innerHTML = ['❤️', '✨', '🎀', '🎉'][Math.floor(Math.random() * 4)];
+                        confetti.style.left = `${Math.random() * 100}vw`;
+                        confetti.style.top = '-20px';
+                        confetti.style.fontSize = `${Math.random() * 20 + 10}px`;
+                        confetti.style.animation = `float-down ${Math.random() * 3 + 2}s linear forwards`;
+                        document.body.appendChild(confetti);
+                        
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 5000);
+                    }, i * 50);
+                }
+            }
+            
+            // Create floating hearts
+            function createHearts() {
+                for (let i = 0; i < 15; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.top = `${Math.random() * 100}vh`;
+                    heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+                    heart.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                    heart.style.animationDelay = `${Math.random() * 5}s`;
+                    document.body.appendChild(heart);
+                }
+            }
+            
+            // Create fairy lights
+            function createFairyLights() {
+                for (let i = 0; i < 20; i++) {
+                    const light = document.createElement('div');
+                    light.className = 'fairy-light';
+                    light.style.left = `${Math.random() * 100}vw`;
+                    light.style.top = `${Math.random() * 100}vh`;
+                    light.style.animationDelay = `${Math.random() * 2}s`;
+                    document.body.appendChild(light);
+                }
+            }
+            
+            // Get random pastel color
+            function getRandomColor() {
+                const colors = [
+                    '#ff9bb3', '#ffb6c1', '#ffdfed', '#a2d2ff', 
+                    '#cdb4db', '#bde0fe', '#ffc8dd', '#ffafcc'
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+        });
+    </script>
+</body>
+</html>
